@@ -20,85 +20,14 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<!-- Home page script -->
+    <script src="scripts/homepage.js"></script>
 </head>
 
 <body>
 
-
-
-<!-- JQuery Script ------------------------------------------------------------------>
-<script>  
-   $(function(){  
-      $( "#boxcentrale" ).load( "home.php", function(){});
-      $( "#boxbasso" ).load( "striscia.php?pag=home",function() {$.getScript("scripts/scroller.js", function(){});});
-	
-	/*Inizializza finestra di dialogo contatti*/	
-      $('#contacts').dialog({
-         autoOpen: false,
-         modal: true,
-         resizable: false,
-         width: 280,
-         show: {
-            effect: "fade",
-            duration: 500
-         },
-         hide: {
-            effect: "drop",
-            duration: 500
-         }
-      });
-    
-    /* Click su logo */
-      $("#logo img").click(function(){
-        var pag = $("#boxcentrale span").attr('pag');
-        if (pag!="home"){
-           $( "#boxcentrale" ).load( "home.php", function() {});
-           $( "#boxbasso" ).show().load( 
-           									"striscia.php?pag=home #scroller",
-           									function() {$.getScript("scripts/scroller.js",
-           									function(){});
-           									});
-	    };  
-      });
-    
-    /*nascondi barra finestra di dialogo*/
-      $(".ui-dialog-titlebar").hide();
-
-	/*Gestione Menù*/
-      $("#chisiamo").click(function(){
-        $( "#boxcentrale" ).load( "chisiamo.php", function() {});
-        $( "#boxbasso" ).hide();
-      });   
-
-      $("#contatti").click(function(){
-         $('#contacts').dialog("open");
-      });      
-      
-      $("#contacts p:nth-child(4)").click(function(){
-         $('#contacts').dialog("close");
-      });
-      
-   	 /* Click evento */
-     $(document).on('click', '.serata', function(e) {
-      	var ser = $(this).text().toLowerCase().replace(/\s/g,"%20");;
-      	$( "#boxcentrale" ).load( "eventi.php?pag="+ser, function() {});
-      	$( "#boxbasso" ).show().load( 
-           							 "striscia.php?pag="+ser+" #scroller",
-           							  function() {$.getScript("scripts/scroller.js",
-           							  function(){});
-           							   });
-         });   
-
-	/* Fine Gestione Menù */   
-      
-      
-   });  
-   ;   
-</script> 
-<!-- END JQuery Script ------------------------------------------------------------------>
-
 <div id="content">
-<!-- START -------------------------------------------------------------------------->
+<!-- START ------------------------------------------------------------------------------>
 
 <div id="logo">
    <img src="images/logojimmy.png">
@@ -132,32 +61,31 @@
    <div id="contactsimg">
       <img src="images/logojimmy.png">
    </div>
-   <div id="contactsinfo">      
-	  <div id="contacticon">
-        <a href="https://www.facebook.com/JimmyBreaksAll"><img src="images/servizio/facebook-icon.png"/></a>
-        <a href="http://www.twitter.com/jimmybreaksall "><img src="images/servizio/twitter-icon.png"/></a>
-        <a href="http://www.bandsintown.com/JimmyBreaksAll!"><img src="images/servizio/bandsintown-icon.png" /></a>
+   
+   <div id="contactsinfo">
+   	<div id="contacticon">
+   		<a href="https://www.facebook.com/JimmyBreaksAll"><img src="images/servizio/facebook-icon.png"/></a>
+        	<a href="http://www.twitter.com/jimmybreaksall "><img src="images/servizio/twitter-icon.png"/></a>
+        	<a href="http://www.bandsintown.com/JimmyBreaksAll!"><img src="images/servizio/bandsintown-icon.png" /></a>
       </div>
+
       <p>
-      Mail: <a href="mailto:info@jimmybreaksall.com">info@jimmybreaksall.com</a><br/>
-      Cell: 392-2607497 (Daniele)
-      </p><br/>
-      <p>Premi esc per uscire</p>
+	      Mail: <a href="mailto:info@jimmybreaksall.com">info@jimmybreaksall.com</a><br/>
+	      Cell: 392-2607497 (Daniele)
+      </p>
+      <p id="closeContactDialog">Premi esc per uscire</p>
    </div>
 </div>
 <!-- END Modulo contatti---------------------------------------- -->
 
-
-
-<!-- icone sopra immagine in evidenza -->
+<!-- Icone Social -->
 <div id="socialicon">
    <ol>
-   		<li><a href="https://www.facebook.com/JimmyBreaksAll"><img src="images/servizio/facebook-icon.png"/></a></li>
+	<li><a href="https://www.facebook.com/JimmyBreaksAll"><img src="images/servizio/facebook-icon.png"/></a></li>
         <li><a href="http://www.twitter.com/jimmybreaksall "><img src="images/servizio/twitter-icon.png"/></a></li>
         <li><a href="http://www.bandsintown.com/JimmyBreaksAll!"><img src="images/servizio/bandsintown-icon.png" /></a></li>
    </ol>
 </div>
-
 
 <!-- Box Centrale, contenuto immesso da Script Jquery-->
 <div id="boxcentrale">
@@ -181,45 +109,19 @@
            </ul>
        </div>
    </div>
-
 </div>
 
-
-
-<!-- Decommentare per attivare 3 box sotto l'immagine
-<div id="boxbasso">
-
-   <div class="un3basso">
-      SEGNALA IL TUO GRUPPO
-   </div>
-
-   <div class="un3basso">
-      SEGNALA IL TUO GRUPPO
-   </div>
-
-   <div class="un3basso">
-      SEGNALA IL TUO GRUPPO
-   </div>
-
-</div>
--->
 
 <div id="footer">
    <img src="images/servizio/scritta-jimmy-foot.png"/> <br/>
 	&copy; 2010-2014 by JimmyBreaksAll. All Rights Reserved. Made in ITALY.
 </div>
 
-<!-- END PAGINA -------------------------------------------------------- -->
-
+<!-- END PAGINA ----------------------------------------------------------->
 </div>
 
    <script type="text/javascript" src="scripts/scroller.js"></script> 
 
 </body>
-
-
-
-
-
 
 </html>
